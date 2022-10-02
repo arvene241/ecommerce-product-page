@@ -7,7 +7,6 @@ const ButtonStyle = styled.button`
   font-weight: 700;
   height: 3.5rem;
   width: 100%;
-  margin-top: 1rem;
   display: flex;
   gap: 1rem;
   align-items: center;

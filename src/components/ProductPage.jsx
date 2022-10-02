@@ -11,8 +11,12 @@ const Main = styled.main`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+    padding: 0 clamp(3rem, 12%, 13rem);
+  }
+
+  @media screen and (min-width: 1440px) {
     gap: 125px;
-    padding: 0 15rem;
   }
 `;
 

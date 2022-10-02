@@ -17,6 +17,14 @@ const Details = styled.div`
 
   .title {
     margin: 10px 0;
+    color: var(--clr-headers);
+    font-size: 1.75rem;
+    line-height: 2rem;
+
+    @media (min-width: 768px) {
+      font-size: 2.75rem;
+      line-height: 3rem;
+    }
   }
 `;
 
@@ -25,11 +33,22 @@ const Price = styled.div`
   display: flex;
   align-items: center;
 
+  @media (min-width: 1024px) {
+    width: 11rem;
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+
   .orig_price {
     flex: 1;
     text-align: end;
     text-decoration: line-through;
     font-weight: 700;
+    color: var(--clr-price);
+
+    @media (min-width: 1024px) {
+      flex: none;
+    }
   }
 
   .discount {
@@ -46,6 +65,14 @@ const Price = styled.div`
 
 const Cart = styled.div`
   margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 const CartCount = styled.div`
@@ -55,9 +82,18 @@ const CartCount = styled.div`
   background-color: var(--clr-input-bg);
   border-radius: 10px;
   height: 3.5rem;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    width: 15rem;
+  }
 
   button {
     padding: 1rem 1.5rem;
+
+    img {
+      vertical-align: middle;
+    }
 
     :hover {
       opacity: 0.7;

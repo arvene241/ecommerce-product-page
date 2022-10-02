@@ -20,7 +20,10 @@ const Slide = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 15px;
+
+    @media screen and (min-width: 546px) {
+      border-radius: 15px;
+    }
   }
 
   &.active-anim {
