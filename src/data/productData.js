@@ -7,7 +7,7 @@ import prod3_thumbnail from "../assets/images/image-product-3-thumbnail.jpg";
 import prod4 from "../assets/images/image-product-4.jpg";
 import prod4_thumbnail from "../assets/images/image-product-4-thumbnail.jpg";
 
-const product = {
+const products = {
   company: "SNEAKER COMPANY",
   title: "Fall Limited Edition Sneakers",
   desc: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.",
@@ -34,4 +34,4 @@ const product = {
   ],
 };
 
-export default product;
+export default products;
