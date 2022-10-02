@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import logo from "../assets/images/logo.svg";
 import menu from "../assets/images/icon-menu.svg";
 import close from "../assets/images/icon-close.svg";
@@ -152,7 +153,7 @@ const Background = styled.div`
   }
 `;
 
-export default function Header() {
+const Header = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -179,4 +180,6 @@ export default function Header() {
       </Right>
     </HeaderStyle>
   );
-}
+};
+
+export default Header;
