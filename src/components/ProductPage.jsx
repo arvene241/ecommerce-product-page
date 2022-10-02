@@ -5,7 +5,6 @@ const Main = styled.main`
   margin: 0px auto;
   max-width: 550px;
   min-height: calc(100vh - 4rem);
-  margin-bottom: 5rem;
 
   @media screen and (min-width: 1024px) {
     max-width: unset;
