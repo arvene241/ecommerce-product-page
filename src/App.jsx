@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import ProductDetails from "./components/ProductDetails";
 import ProductImages from "./components/ProductImages";
 import ProductPage from "./components/ProductPage";
+import { CartProvider } from "./context/CartContext";
 import products from "./data/productData";
 import GlobalStyle from "./GlobalStyle";
 import useBreakpoints from "./hooks/useBreakpoints";
@@ -13,21 +14,14 @@ function App() {
   const { isDesktop } = useBreakpoints();
 
   return (
-    <>
+    <CartProvider>
       <GlobalStyle />
       <Header />
       <ProductPage>
         <ProductImages images={product.images} />
-        <ProductDetails
-          company={product.company}
-          title={product.title}
-          desc={product.desc}
-          discount={product.discount}
-          price={product.price}
-          orig_price={product.orig_price}
-        />
+        <ProductDetails product={product} />
       </ProductPage>
-    </>
+    </CartProvider>
   );
 }
 

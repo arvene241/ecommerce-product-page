@@ -1,6 +1,6 @@
 import React from "react";
 
-const CartButton = ({ icon, handleClick }) => {
+const IconButton = ({ icon, handleClick }) => {
   return (
     <button onClick={handleClick}>
       <img src={icon} />
@@ -8,4 +8,4 @@ const CartButton = ({ icon, handleClick }) => {
   );
 };
 
-export default CartButton;
+export default IconButton;

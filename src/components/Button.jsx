@@ -31,9 +31,9 @@ const ButtonStyle = styled.button`
   }
 `;
 
-const Button = ({ icon, title }) => {
+const Button = ({ icon, title, addToCart }) => {
   return (
-    <ButtonStyle>
+    <ButtonStyle onClick={addToCart}>
       {icon}
       <p>{title}</p>
     </ButtonStyle>

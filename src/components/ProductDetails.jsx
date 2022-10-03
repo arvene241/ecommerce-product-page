@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import minus from "../assets/images/icon-minus.svg";
 import plus from "../assets/images/icon-plus.svg";
 import { BsCart3 } from "react-icons/bs";
-import CartButton from "./CartButton";
+import IconButton from "./IconButton";
 import Button from "./Button";
+import CartContext from "../context/CartContext";
 
 const Details = styled.div`
   padding: 1.5rem;
@@ -106,15 +107,9 @@ const CartCount = styled.div`
   }
 `;
 
-const ProductDetails = ({
-  company,
-  title,
-  desc,
-  discount,
-  price,
-  orig_price,
-}) => {
+const ProductDetails = ({ product }) => {
   const [count, setCount] = useState(0);
+  const { addToCart } = useContext(CartContext);
 
   const handleMinus = () => {
     if (count == 0) {
@@ -130,21 +125,25 @@ const ProductDetails = ({
 
   return (
     <Details>
-      <h2 className="company">{company}</h2>
-      <h1 className="title">{title}</h1>
-      <p>{desc}</p>
+      <h2 className="company">{product.company}</h2>
+      <h1 className="title">{product.title}</h1>
+      <p>{product.desc}</p>
       <Price>
-        <h1 className="price">{price}</h1>
-        <p className="discount">{discount}</p>
-        <p className="orig_price">{orig_price}</p>
+        <h1 className="price">{product.price}</h1>
+        <p className="discount">{product.discount}</p>
+        <p className="orig_price">{product.orig_price}</p>
       </Price>
       <Cart>
         <CartCount>
-          <CartButton icon={minus} handleClick={handleMinus} />
+          <IconButton icon={minus} handleClick={handleMinus} />
           <p>{count}</p>
-          <CartButton icon={plus} handleClick={handlePlus} />
+          <IconButton icon={plus} handleClick={handlePlus} />
         </CartCount>
-        <Button icon={<BsCart3 />} title="Add to cart" />
+        <Button
+          icon={<BsCart3 />}
+          title="Add to cart"
+          addToCart={() => addToCart(product, count)}
+        />
       </Cart>
     </Details>
   );

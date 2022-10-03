@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import logo from "../assets/images/logo.svg";
 import menu from "../assets/images/icon-menu.svg";
 import close from "../assets/images/icon-close.svg";
 import cart from "../assets/images/icon-cart.svg";
 import profile from "../assets/images/image-avatar.png";
+import CartContext from "../context/CartContext";
+import Cart from "./Cart";
 
 const HeaderStyle = styled.header`
   display: flex;
@@ -106,10 +108,6 @@ const Right = styled.div`
   justify-content: end;
   gap: 20px;
 
-  #cart {
-    cursor: pointer;
-  }
-
   #profile {
     height: 2rem;
     width: 2rem;
@@ -153,8 +151,36 @@ const Background = styled.div`
   }
 `;
 
+const CartBubble = styled.div`
+  display: flex;
+  position: relative;
+  cursor: pointer;
+`;
+
+const Count = styled.div`
+  position: absolute;
+  background-color: var(--primary-color);
+  border-radius: 6.5px;
+  color: var(--clr-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  font-weight: 700;
+  height: 0.8125rem;
+  line-height: 1;
+  top: -2px;
+  right: -6px;
+  width: 1.1875rem;
+
+  &.empty {
+    display: none;
+  }
+`;
+
 const Header = () => {
   const [toggle, setToggle] = useState(false);
+  const { openCart, total } = useContext(CartContext);
 
   return (
     <HeaderStyle>
@@ -175,9 +201,17 @@ const Header = () => {
         </ul>
       </Nav>
       <Right>
-        <img id="cart" src={cart} />
+        <CartBubble
+          onClick={() => {
+            openCart();
+          }}
+        >
+          <Count className={total == 0 && "empty"}>{total}</Count>
+          <img id="cart" src={cart} />
+        </CartBubble>
         <img id="profile" src={profile} />
       </Right>
+      <Cart />
     </HeaderStyle>
   );
 };
