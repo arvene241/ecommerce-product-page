@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import left from "../assets/images/icon-previous.svg";
 import right from "../assets/images/icon-next.svg";
 
