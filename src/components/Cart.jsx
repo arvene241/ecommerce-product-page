@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import CartContext from "../context/CartContext";
+import CartItem from "./CartItem";
 
 const Container = styled.div`
   border-radius: 10px;
@@ -22,17 +23,17 @@ const Container = styled.div`
     max-height: 100vh;
   }
 
-  p {
-    padding: 1.5rem 1.5rem 1.6875rem;
-    font-weight: 700;
-    line-height: 1.25rem;
-    color: var(--clr-headers);
-  }
-
   @media (min-width: 800px) {
     margin: 0 89px;
     top: 5.875rem;
   }
+`;
+
+const CartHeader = styled.p`
+  padding: 1.5rem 1.5rem 1.6875rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+  color: var(--clr-headers);
 `;
 
 const Contents = styled.div`
@@ -47,13 +48,19 @@ const Contents = styled.div`
 `;
 
 const Cart = () => {
-  const {cartOpen, items, openCart} = useContext(CartContext);
+  const { cartOpen, items } = useContext(CartContext);
 
   return (
     <Container className={cartOpen ? "open" : ""}>
-      <p>Cart</p>
+      <CartHeader>Cart</CartHeader>
       <Contents>
-        {/* <CartItem></CartItem> */}
+        {items.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          items.map((item, index) => {
+            return <CartItem key={index} index={index} item={item} />;
+          })
+        )}
       </Contents>
     </Container>
   );

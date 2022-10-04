@@ -129,9 +129,9 @@ const ProductDetails = ({ product }) => {
       <h1 className="title">{product.title}</h1>
       <p>{product.desc}</p>
       <Price>
-        <h1 className="price">{product.price}</h1>
+        <h1 className="price">${product.price}</h1>
         <p className="discount">{product.discount}</p>
-        <p className="orig_price">{product.orig_price}</p>
+        <p className="orig_price">${product.orig_price}</p>
       </Price>
       <Cart>
         <CartCount>

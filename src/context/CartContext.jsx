@@ -14,11 +14,20 @@ export const CartProvider = ({ children }) => {
   };
 
   const addToCart = (product, count) => {
+    const index = items.findIndex((item) => item.product === product);
+
     setTotal(total + count);
-    dispatch({ type: "ADD", item: { product, count } });
+
+    if (index === -1) {
+      dispatch({ type: "ADD", item: { product, count } });
+    } else {
+      console.log(items[index])
+      items[index].count += count;
+    }
   };
 
   const deleteToCart = (index) => {
+    setTotal(total - items[index].count);
     dispatch({ type: "REMOVE", index });
   };
 
