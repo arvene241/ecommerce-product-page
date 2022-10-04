@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BtnSlider from "../../../ecommerce/src/components/BtnSlider";
+import BtnSlider from "./BtnSlider";
 
 const Container = styled.div`
   width: 100%;
