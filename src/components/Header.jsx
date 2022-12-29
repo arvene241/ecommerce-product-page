@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import logo from "../assets/images/logo.svg";
 import menu from "../assets/images/icon-menu.svg";
@@ -181,6 +181,15 @@ const Count = styled.div`
 const Header = () => {
   const [toggle, setToggle] = useState(false);
   const { openCart, total } = useContext(CartContext);
+
+  useEffect(() => {
+    if (toggle) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "unset";
+    }
+
+  }, [toggle])
 
   return (
     <HeaderStyle>

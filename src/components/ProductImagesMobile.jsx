@@ -39,7 +39,7 @@ const ProductImagesMobile = ({ images, active, nextSlide, prevSlide }) => {
           key={index}
           className={active === index + 1 ? "active-anim" : ""}
         >
-          <img src={`/src/assets/images/image-product-${index + 1}.jpg`} />
+          <img src={obj.prod} />
         </Slide>
       ))}
 
